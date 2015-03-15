@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPlayerDemo", "http://localhost:50124", "{1956FD43-7B5B-4E6A-9280-720A824DD6E0}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50124"
+		Debug.AspNetCompiler.PhysicalPath = "WebPlayerDemo\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50124\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50124"
+		Release.AspNetCompiler.PhysicalPath = "WebPlayerDemo\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50124\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "WebPlayerDemo\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentServer", "CommentServer\CommentServer.csproj", "{936B6315-590B-49A0-9C2E-D66DCA3D2F5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1956FD43-7B5B-4E6A-9280-720A824DD6E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1956FD43-7B5B-4E6A-9280-720A824DD6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1956FD43-7B5B-4E6A-9280-720A824DD6E0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1956FD43-7B5B-4E6A-9280-720A824DD6E0}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{936B6315-590B-49A0-9C2E-D66DCA3D2F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{936B6315-590B-49A0-9C2E-D66DCA3D2F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{936B6315-590B-49A0-9C2E-D66DCA3D2F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{936B6315-590B-49A0-9C2E-D66DCA3D2F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
