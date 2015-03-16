@@ -9,7 +9,8 @@
             url: null,
             width: null,
             height: null,
-            sendCommentFunc: null
+            sendCommentFunc: null,
+            receiveCommentFunc: null
         }, options);
 
 
@@ -33,8 +34,16 @@
         // CommentCore Part
         proxy.on('addNewCommentToPage', function (msg) {
             console.log(msg);
-            $('#messages').append($('<li>').text(msg));
-            var danmaku = JSON.parse(msg);
+            settings.receiveCommentFunc(msg);
+            var newMsg = JSON.parse(msg);
+            var danmaku = {
+                "mode": newMsg.mode,
+                "text": newMsg.text,
+                "stime": newMsg.stime,
+                "size": newMsg.size,
+                "color": newMsg.color,
+                "dur": newMsg.dur
+            };
             CM.send(danmaku);
         });
 

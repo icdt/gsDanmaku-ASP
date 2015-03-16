@@ -23,7 +23,8 @@
                 url: 'http://localhost:59919/signalr',
                 width: '660px',
                 height: '400px',
-                sendCommentFunc: sendComment
+                sendCommentFunc: sendComment,
+                receiveCommentFunc: receiveComment
             }, checkChanPlayInfomation);
         });
 
@@ -35,19 +36,27 @@
                 // 輸入空字串直接return
                 if ("" == $('#msg').val()) return;
 
-                var danmaku = {
+                var newComment = {
+                    //danmaku part
                     "mode": Number($("#comment-animation-type option:selected").val()),
                     "text": $('#msg').val(),
                     "stime": 3000,
                     "size": Number($("#font-size option:selected").val()),
                     "color": parseInt($("#font-color option:selected").val(), 16),
-                    "dur": 10000
+                    "dur": 10000,
+                    //custom part
+                    "user": $('#comment-user').val()
                 };
-                var msg = JSON.stringify(danmaku);
-
-                signalr_proxy.invoke("sendNewComment", msg);
+                var msgToServer = JSON.stringify(newComment);
+                signalr_proxy.invoke("sendNewComment", msgToServer);
                 $('#msg').val("");
             });
+        }
+
+        function receiveComment( newComment ) {
+
+            $('#messages').append($('<li>').text(newComment));
+
         }
 
         // 重新包裹Popup執行
@@ -112,6 +121,10 @@
         <option value="6">逆向滾動</option>
     </select>
     <br />
+    Name: <br />
+    <input type="text" name="name" value=" " id="comment-user" />
+    <br />
+    Comment: <br />
     <textarea id="msg"></textarea>
     <br />
     <button id="btnSend">Send</button>
@@ -125,10 +138,12 @@
                    { %>
                 <div id="RTMP_DIV">
                     <%--<div id="my-player" class="abp" style="width: 660px; height: 400px;">--%>
-
                         <iframe id="RtmpLivePlayer" src="RtmpLivePlayer.aspx" style="width: 660px; height: 400px; border: 2px solid"></iframe>
                         <%--<div id="my-comment-stage" class="container"></div>--%>
                     <%--</div>--%>
+
+                     <ul id="messages"></ul>
+
                         <!-- hidden field -->
                         <input type="hidden" id="ObjRtmp" value="1" /><br />
                         <input type="hidden" id="status" value="" /><br />
@@ -140,9 +155,6 @@
                         <input type="hidden" id="first_time" value="1" /><br />
                         <input type="hidden" id="PlayerStatus" value="" /><br />
                         <input type="hidden" id="Client_Version" value="" /><br />
-                    
-                    <ul id="messages"></ul>
-
                 </div>
                 <%} %>
             </div>
